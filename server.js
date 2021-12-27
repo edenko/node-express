@@ -5,6 +5,8 @@ const bodyParser= require('body-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
+require('dotenv').config();
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(session({secret : 'secret', resave : true, saveUninitialized: false}));
@@ -14,13 +16,13 @@ app.use(passport.session());
 
 /**************************************** 기본 설정 **************************************************/
 var db;
-MongoClient.connect('mongodb+srv://admin:0000009@cluster0.mwpuc.mongodb.net/todoapp?retryWrites=true&w=majority', function(error, client){
+MongoClient.connect(process.env.DB_URL, function(error, client){
     if(error) return console.log(error);
 
     // db 연결
     db = client.db('todoapp');
 
-    app.listen('8080', function(){
+    app.listen(process.env.PORT, function(){
         console.log('listening on 8080')
     });
 })
@@ -94,7 +96,7 @@ app.patch('/edit/:id', (req, res) => {
 /**************************************** 게시물 CRUD 끝 **************************************************/
 
 
-/**************************************** 로그인 **************************************************/
+/**************************************** 로그인, 세션 **************************************************/
 app.get('/login', (req, res) => {
     res.render('login.ejs');
 });
@@ -112,7 +114,6 @@ passport.use(new LocalStrategy({
     console.log(inId, inPwd);
     db.collection('users').findOne({ id: inId }, function (error, result) {
         if (error) return done(error)
-
         if (!result) return done(null, false, { message: '존재하지않는 아이디요' })
         if (inPwd == result.pwd) {
             return done(null, result)
@@ -127,15 +128,17 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (id, done) {
-    done(null, {})
+    db.collection('users').findOne({id : id}, (error, result) => {
+        done(null, result)
+    })
 });
-/**************************************** 로그인 끝 **************************************************/
+/**************************************** 로그인, 세션 끝 **************************************************/
 
 
 /**************************************** 마이페이지 **************************************************/
 app.get('/myPage', loginCheck, (req, res) => {
-
-    res.render('myPage.ejs');
+    // console.log(req.user);
+    res.render('myPage.ejs', {user : req.user});
 });
 
 function loginCheck(req, res, next) {
