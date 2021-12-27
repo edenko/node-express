@@ -5,7 +5,7 @@
 </p>
 
 Fast, unopinionated, minimalist web framework for node.
-This project with node + express + socket.io + mongodb
+This project with node + express + socket.io + mongodb + atlas + search index
 * GitHub : https://github.com/edenko/node-express
 
 ## Project setup
