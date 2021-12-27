@@ -24,8 +24,10 @@ Load `http://localhost:8080` to test the endpoint. It will display a result `lis
 * express
 * passport
 * express-session
-* mongodb (>= 3.0)
 * ejs
+* mongodb (>= 3.0)
+* atlas
+
 
 ## App Structure
 > _Note: I am mentioning only files/folders which you need to configure if required_
