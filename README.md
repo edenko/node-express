@@ -1,4 +1,12 @@
-# Node.js Rest APIs with Express & MongoDB
+<h1 align="center">Node.js Rest APIs with Express & MongoDB</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.5.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
+</p>
+
+Fast, unopinionated, minimalist web framework for node.
+This project with node + express + socket.io + mongodb
+* GitHub : https://github.com/edenko/node-express
 
 ## Project setup
 ```
@@ -59,3 +67,9 @@ node-express/
 ```
 
 ## Screens
+
+## Author
+👤 **HaYoung Ko**
+
+* Github: [@edenko](https://github.com/edenko)
+* email: goodeden3@gmail.com
