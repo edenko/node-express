@@ -52,17 +52,17 @@ node-express/
   Method | URI
 +--------+-------------------------+
   GET    | /
-  GET    | /signup
-  POST   | /signup
   GET    | /login
   POST   | /login
-  GET    | /logout
-  GET    | /account
-  GET    | /auth/google
-  GET    | /auth/google/callback
-  GET    | /auth/twitter
-  GET    | /auth/twitter/callback
-  GET    | /status-monitor
+  GET    | /write
+  POST   | /add
+  GET    | /list
+  DELETE | /delete
+  GET    | /detail/id
+  GET    | /edit/id
+  PATCH  | /edit/id
+  GET    | /myPage
+  GET    | /search
 +--------+-------------------------+
 ```
 
