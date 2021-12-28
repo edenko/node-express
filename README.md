@@ -34,6 +34,9 @@ node-express/
 ├── package-lock.json
 ├── package.json
 ├── server.js
+├── router
+│   ├── main.js
+│   └── board.js
 └── views
     ├── detail.ejs
     ├── edit.ejs

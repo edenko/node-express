@@ -18,17 +18,12 @@
   <button class="input-group-append btn btn-danger" id="search">검색</button>
 </div>
 
-<!-- <div><%= posts[0].title %></div> -->
-<!-- <div><%= posts[0].date %></div> -->
-
 <ul class="list-group">
     <% for(var i = 0; i < posts.length; i++) { %>
       <li class="list-group-item">
         <h5><a href="detail/<%= posts[i]._id %>"><%= posts[i].title %></a></h5>
         <p><%= posts[i].date %></p>
-        <% if((user ? user.id : '') == (posts[i].user ? posts[i].user : '')) { %>
-            <button type="button" class="btn btn-light delete" data-id="<%= posts[i]._id %>">삭제</button>
-        <% } %>
+        <button type="button" class="btn btn-light delete" data-id="<%= posts[i]._id %>">삭제</button>
       </li>
     <% } %>
 </ul>
