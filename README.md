@@ -5,7 +5,7 @@
 </p>
 
 Fast, unopinionated, minimalist web framework for node.
-This project with node + express + socket.io + mongodb
+This project with node + express + socket.io + mongodb + atlas + search index
 * GitHub : https://github.com/edenko/node-express
 
 ## Project setup
@@ -24,8 +24,10 @@ Load `http://localhost:8080` to test the endpoint. It will display a result `lis
 * express
 * passport
 * express-session
-* mongodb (>= 3.0)
 * ejs
+* mongodb (>= 3.0)
+* atlas
+
 
 ## App Structure
 > _Note: I am mentioning only files/folders which you need to configure if required_
@@ -55,21 +57,21 @@ node-express/
   Method | URI
 +--------+-------------------------+
   GET    | /
-  GET    | /signup
-  POST   | /signup
   GET    | /login
   POST   | /login
-  GET    | /logout
-  GET    | /account
-  GET    | /auth/google
-  GET    | /auth/google/callback
-  GET    | /auth/twitter
-  GET    | /auth/twitter/callback
-  GET    | /status-monitor
+  GET    | /write
+  POST   | /add
+  GET    | /list
+  DELETE | /delete
+  GET    | /detail/id
+  GET    | /edit/id
+  PATCH  | /edit/id
+  GET    | /myPage
+  GET    | /search
 +--------+-------------------------+
 ```
 
-## Screens
+<!-- ## Screens -->
 
 ## Author
 👤 **HaYoung Ko**
