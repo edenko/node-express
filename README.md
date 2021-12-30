@@ -5,7 +5,7 @@
 </p>
 
 Fast, unopinionated, minimalist web framework for node.
-This project with node + express + socket.io + mongodb + atlas + search index
+This project with node + express + socket.io + mongodb atlas + search index
 * GitHub : https://github.com/edenko/node-express
 
 ## Project setup
@@ -38,8 +38,11 @@ node-express/
 ├── server.js
 ├── router
 │   ├── main.js
-│   └── board.js
+│   ├── board.js
+│   ├── upload.js
+│   └── chat.js
 └── views
+    ├── chat.ejs
     ├── detail.ejs
     ├── edit.ejs
     ├── index.ejs
@@ -47,6 +50,8 @@ node-express/
     ├── login.ejs
     ├── myPage.ejs
     ├── nav.html
+    ├── search.ejs
+    ├── upload.ejs
     └── write.ejs
  ```
 
