@@ -37,7 +37,8 @@ router.post('/add', function(req, res) {
 
 router.get('/list', (req, res) => {
     db.collection('post').find().toArray((error, result) => {
-        res.render('list.ejs', { posts : result, user : req.user });
+        res.send({ posts : result, user : req.user });
+        // res.render('list.ejs', { posts : result, user : req.user });
     });
 });
 

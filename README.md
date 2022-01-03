@@ -15,7 +15,7 @@ npm install
 
 ### Run
 ```
-nodemon server.js
+node server.js
 ```
 Load `http://localhost:8080` to test the endpoint. It will display a result `listening on 8080`
 
