@@ -8,16 +8,19 @@ Fast, unopinionated, minimalist web framework for node.
 This project with node + express + socket.io + mongodb atlas + search index
 * GitHub : https://github.com/edenko/node-express
 
+
 ## Project setup
 ```
 npm install
 ```
+
 
 ### Run
 ```
 node server.js
 ```
 Load `http://localhost:8080` to test the endpoint. It will display a result `listening on 8080`
+
 
 ## Requirements
 * node (>= 10.5.0)
@@ -55,6 +58,7 @@ node-express/
     └── write.ejs
  ```
 
+
 ## List of API Endpoints
 
 ```sh
@@ -77,6 +81,7 @@ node-express/
 ```
 
 <!-- ## Screens -->
+
 
 ## Author
 👤 **HaYoung Ko**
