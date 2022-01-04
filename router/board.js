@@ -66,8 +66,8 @@ router.get('/edit/:id', (req, res) => {
 
 router.patch('/edit/:id', (req, res) => {
     db.collection('post').updateOne({_id : parseInt(req.body._id)}, { $set : {title : req.body.title, date : req.body.date}}, (error, result) => {
-        res.redirect('/board/list');
     });
+    res.redirect('/board/list');
 });
 
 /**************************************** 게시물 CRUD 끝 **************************************************/
