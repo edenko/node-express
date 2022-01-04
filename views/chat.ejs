@@ -82,7 +82,7 @@
             var data = JSON.parse(e.data);
             data.forEach((i) => {
                 var user = $('#user').val();
-                if(user != postUser) {
+                if(user) {
                     $('.chat-content').append('<li><span class="chat-box mine">'+ i.content +'</span></li>')
                 }else {
                     $('.chat-content').append('<li><span class="chat-box">'+ i.content +'</span></li>')

@@ -29,14 +29,6 @@ MongoClient.connect(process.env.DB_URL, function(error, client){
     });
 })
 
-function loginCheck(req, res, next) {
-    if(req.user) {
-        next()
-    }else {
-        res.render('login.ejs');
-    }
-}
-
 app.get('/', function(req, res) {
     // res.sendFile(__dirname + '/index.htmk');
     res.render('index.ejs', {user : req.user});
@@ -47,32 +39,7 @@ app.get('/image/:imageName', (req, res) => {
 });
 
 /**************************************** web socket **************************************************/
-app.get('/message/:parent', loginCheck, function(req, res){
-    res.writeHead(200, {
-        "Connection": "keep-alive",
-        "Content-Type": "text/event-stream",
-        "Cache-Control": "no-cache",
-    });
-    db.collection('chatLogs').find({ parent : req.params.parent }).toArray().then((result)=>{
-        res.write('event: test\n');
-        res.write(`data: ${JSON.stringify(result)}\n\n`);
-    })
-
-    // change Stream
-    const pipeline = [
-        { $match: { 'fullDocument.parent' : req.params.parent } }
-    ];
-    const collection = db.collection('chatLogs')
-    const changeStream = collection.watch(pipeline);
-    changeStream.on('change', (result) => {
-        console.log(result.fullDocument); // 전체 내용을 출력하고 싶다
-        var data = [result.fullDocument];
-        res.write('event: test\n');
-        res.write(`data: ${JSON.stringify(data)}\n\n`);
-    });
-});
-
-app.get('/socket', (req, res) =>  {
+app.get('/socket1111', (req, res) =>  {
     res.render('socket.ejs')
 })
 
