@@ -31,7 +31,7 @@ MongoClient.connect(process.env.DB_URL, function(error, client){
 
 app.get('/', function(req, res) {
     // res.sendFile(__dirname + '/index.htmk');
-    res.render('index.ejs');
+    res.render('index.ejs', {user : req.user});
 });
 
 app.get('/image/:imageName', (req, res) => {

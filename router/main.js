@@ -59,17 +59,22 @@ passport.deserializeUser(function (id, done) {
 });
 
 router.post('/register', (req, res) => {
-    var count = db.collection('users').find({id:req.body.id}).count();
-    if(count < 0) {
-        db.collection('users').insertOne({id:req.body.id, pwd:req.body.pwd}, (error, result) => {
-            res.redirect('/')
-        })
-    }else {
-        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'})
-        res.write("<script>alert('중복된 아이디 입니다.')</script>")
-        res.end()
-        res.redirect('/login')
-    }
+    db.collection('users').findOne({id: req.body.id}, (error, result) => {
+        if (error) return done(error)
+        if(!result) {
+            db.collection('users').insertOne({id:req.body.id, pwd:req.body.pwd}, (error, result) => {
+                if (error) return done(error)
+            })
+            res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'})
+            res.write("<script>alert('가입되었습니다. 로그인해주세요.')</script>")
+            res.end()
+        }else {
+            res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'})
+            res.write("<script>alert('중복된 아이디 입니다.')</script>")
+            res.end()
+        }
+        // res.redirect('/login')
+    });
 })
 
 /**************************************** 로그인, 세션 끝 **************************************************/
