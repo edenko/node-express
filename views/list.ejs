@@ -30,7 +30,7 @@
 
             <div style="font-size:15px; color:#777;">글번호 : <%= posts[i]._id %></div>
             <h5><a href="detail/<%= posts[i]._id %>"><%= posts[i].title %></a></h5>
-            <p><%= posts[i].date %></p>
+            <p><%= posts[i].user %> / <%= posts[i].date %></p>
             <% if((user ? user.id : '') == (posts[i].user ? posts[i].user : '')) { %>
                 <button type="button" class="btn btn-light delete" data-id="<%= posts[i]._id %>">삭제</button>
             <% }else if(user && (user.id != (posts[i].user ? posts[i].user : ''))) { %>
