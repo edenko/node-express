@@ -14,7 +14,6 @@ This project with node + express + socket.io + mongodb atlas + search index
 npm install
 ```
 
-
 ## Run
 ```
 node server.js
@@ -77,6 +76,14 @@ node-express/
   PATCH  | /edit/id
   GET    | /myPage
   GET    | /search
+  GET    | /image/:imageName
+  GET    | /upload
+  POST   | /upload
+  GET    | /chat
+  POST   | /chat
+  POST   | /sendChat
+  GET    | /message/:parent
+  GET    | /socket
 +--------+-------------------------+
 ```
 
