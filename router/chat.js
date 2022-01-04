@@ -74,6 +74,9 @@ router.get('/message/:parent', loginCheck, function(req, res){
         "Cache-Control": "no-cache",
     });
     db.collection('chatLogs').find({ parent : req.params.parent }).toArray().then((result)=>{
+        for(var i = 0; i < result.length; i++) {
+            console.log(result[i].content);
+        }
         res.write('event: test\n');
         res.write(`data: ${JSON.stringify(result)}\n\n`);
     })
