@@ -39,7 +39,7 @@ app.get('/image/:imageName', (req, res) => {
 });
 
 /**************************************** web socket **************************************************/
-app.get('/socket1111', (req, res) =>  {
+app.get('/socket', (req, res) =>  {
     res.render('socket.ejs')
 })
 
