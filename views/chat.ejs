@@ -80,10 +80,10 @@
         eventSource = new EventSource('/message/'+ parentId);
         eventSource.addEventListener('test', function(e){
             var data = JSON.parse(e.data);
-            console.log(data);
             data.forEach((i) => {
                 var user = $('#user').val();
                 if(user) {
+                    console.log(i.content);
                     $('.chat-content').append('<li><span class="chat-box mine">'+ i.content +'</span></li>')
                 }else {
                     $('.chat-content').append('<li><span class="chat-box">'+ i.content +'</span></li>')
