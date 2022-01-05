@@ -78,17 +78,16 @@
             eventSource.close()
         }
         eventSource = new EventSource('/message/'+ parentId);
-        eventSource.addEventListener('test', function(e){
+        eventSource.addEventListener('chat1', function(e){
+            // data 안나옴.... 이유 모르겠음...
             var data = JSON.parse(e.data);
             data.forEach((i) => {
                 var user = $('#user').val();
                 if(user) {
-                    console.log(i.content);
                     $('.chat-content').append('<li><span class="chat-box mine">'+ i.content +'</span></li>')
                 }else {
                     $('.chat-content').append('<li><span class="chat-box">'+ i.content +'</span></li>')
                 }
-
             })
         })
     })

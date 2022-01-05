@@ -74,7 +74,7 @@ router.get('/message/:parent', loginCheck, function(req, res){
         "Cache-Control": "no-cache",
     });
     db.collection('chatLogs').find({ parent : req.params.parent }).toArray().then((result)=>{
-        res.write('event: test\n');
+        res.write('event: chat1\n');
         res.write(`data: ${JSON.stringify(result)}\n\n`);
     })
 
@@ -85,7 +85,6 @@ router.get('/message/:parent', loginCheck, function(req, res){
     const collection = db.collection('chatLogs')
     const changeStream = collection.watch(pipeline);
     changeStream.on('change', (result) => {
-        console.log(result.fullDocument); // 전체 내용을 출력하고 싶다
         var data = [result.fullDocument];
         res.write('event: test\n');
         res.write(`data: ${JSON.stringify(data)}\n\n`);
