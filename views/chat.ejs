@@ -80,6 +80,7 @@
         eventSource = new EventSource('/message/'+ parentId);
         eventSource.addEventListener('test', function(e){
             var data = JSON.parse(e.data);
+            console.log(data);
             data.forEach((i) => {
                 var user = $('#user').val();
                 if(user) {
